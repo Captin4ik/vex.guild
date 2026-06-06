@@ -1,1 +1,1 @@
-# vex.github.io
+# vex.guild
