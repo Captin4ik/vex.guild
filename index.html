@@ -1,11 +1,638 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <title>Мой сайт</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vex Guild — Minecraft Clan</title>
+  <meta name="description" content="Vex Guild — Minecraft-клан дизельпанк-строителей, инженеров и экономистов. Хартия Свободы, Механики и Неба." />
+  <!-- Favicon: замени href на путь к своему .ico / .png файлу -->
+  <!-- <link rel="icon" type="image/png" href="assets/favicon.png" /> -->
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <h1>Привет!</h1>
-    <p>Это мой первый сайт на GitHub.</p>
+
+  <!-- ═══════════════════════ FLOATING VEX SPRITES ═══════════════════════ -->
+  <div class="bg-sprites" aria-hidden="true">
+    <img src="assets/vex-mob-sword.png" class="bg-sprite bs-1" alt="" />
+    <img src="assets/vex-mob-front.png" class="bg-sprite bs-2" alt="" />
+    <img src="assets/vex-mob-dark.png"  class="bg-sprite bs-3" alt="" />
+    <img src="assets/vex-mob-sword.png" class="bg-sprite bs-4" alt="" />
+    <img src="assets/vex-mob-front.png" class="bg-sprite bs-5" alt="" />
+    <img src="assets/vex-mob-dark.png"  class="bg-sprite bs-6" alt="" />
+  </div>
+
+  <!-- ═══════════════════════ HEADER ═══════════════════════ -->
+  <header class="site-header" id="top">
+    <div class="header-inner container">
+
+      <a href="#hero" class="logo" aria-label="Vex Guild — на главную">
+        <img src="assets/vex-logo.png" alt="Vex Guild логотип" class="logo-img" />
+        <span class="logo-text">Vex <span class="logo-accent">Guild</span></span>
+      </a>
+
+      <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="main-nav" id="main-nav" aria-label="Основная навигация">
+        <ul>
+          <li><a href="#hero">Главная</a></li>
+          <li><a href="#charter">Хартия</a></li>
+          <li><a href="#features">Возможности</a></li>
+          <li><a href="#projects">Проекты</a></li>
+          <li><a href="#join" class="nav-cta">Вступить</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ═══════════════════════ HERO ═══════════════════════ -->
+    <section class="hero" id="hero" aria-label="Главный экран">
+
+      <!-- Parallax background layer -->
+      <div class="hero-bg" id="heroBg"
+           style="background-image: url('assets/animated_banner_vex_guild.webp');"
+           aria-hidden="true"></div>
+
+      <!-- Smoke / vignette overlays -->
+      <div class="hero-smoke" aria-hidden="true"></div>
+      <div class="hero-vignette" aria-hidden="true"></div>
+
+      <!-- Canvas particles -->
+      <canvas class="hero-canvas" id="heroCanvas" aria-hidden="true"></canvas>
+
+      <!-- Corner decorations -->
+      <div class="corner corner--tl" aria-hidden="true"></div>
+      <div class="corner corner--tr" aria-hidden="true"></div>
+      <div class="corner corner--bl" aria-hidden="true"></div>
+      <div class="corner corner--br" aria-hidden="true"></div>
+
+      <!-- Pixel star clusters -->
+      <div class="star-cluster star-cluster--1" aria-hidden="true"></div>
+      <div class="star-cluster star-cluster--2" aria-hidden="true"></div>
+
+      <div class="hero-content container" data-reveal>
+        <div class="hero-mark" aria-hidden="true">
+          <img src="assets/vex-logo.png" alt="" class="hero-mark-img" />
+          <span class="hero-mark-line"></span>
+        </div>
+
+        <div class="hero-eyebrow">
+          <span class="eyebrow-line"></span>
+          <span class="eyebrow-text">Minecraft · Дизельпанк · Небо</span>
+          <span class="eyebrow-line"></span>
+        </div>
+
+        <h1 class="hero-title">
+          Клан <span class="gradient-text">Vex</span>
+        </h1>
+
+        <p class="hero-subtitle">Хартия Свободы, Механики и Неба</p>
+
+        <p class="hero-desc">
+          Мы строим свободу блок за блоком — в небе, механизмах и экономике.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#join" class="btn btn--primary">Вступить в клан</a>
+          <a href="#charter" class="btn btn--ghost">Узнать больше</a>
+        </div>
+
+        <!-- Decorative pixel grid hint -->
+        <div class="hero-grid-hint" aria-hidden="true">
+          <span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+
+      <!-- Scroll indicator -->
+      <div class="scroll-hint" aria-hidden="true">
+        <div class="scroll-hint-line"></div>
+        <span>scroll</span>
+      </div>
+
+    </section>
+
+    <!-- ═══════════════════════ CHARTER ═══════════════════════ -->
+    <section class="charter section" id="charter" aria-labelledby="charter-title">
+      <div class="container">
+
+        <div class="charter-card" data-reveal>
+          <div class="corner corner--tl corner--sm" aria-hidden="true"></div>
+          <div class="corner corner--tr corner--sm" aria-hidden="true"></div>
+          <div class="corner corner--bl corner--sm" aria-hidden="true"></div>
+          <div class="corner corner--br corner--sm" aria-hidden="true"></div>
+
+          <div class="charter-header">
+            <div class="charter-emblem" aria-hidden="true">
+              <img src="assets/vex-logo.png" alt="" class="charter-logo" />
+            </div>
+            <h2 class="section-title" id="charter-title">
+              Клан <span class="gradient-text">Vex</span>
+            </h2>
+            <p class="charter-subtitle">Хартия Свободы, Механики и Неба</p>
+          </div>
+
+          <div class="divider" aria-hidden="true">
+            <span class="divider-line"></span>
+            <span class="divider-icon">◆</span>
+            <span class="divider-line"></span>
+          </div>
+
+          <div class="charter-body">
+            <p>
+              Мы — <strong>Вексы</strong>. Игроки, ориентированные на строительство,
+              развитую экономику, инженерные решения и дизельпанк-эстетику.
+            </p>
+            <p>
+              Ценим дружелюбие в общении, порядок на базах и точность в схемах.
+            </p>
+            <p class="charter-highlight">
+              Если тебе близок воздух небесных доков, латунные каркасы и мысль, что свободу
+              можно построить блок за блоком — тебе к <strong>Нам</strong>.
+            </p>
+          </div>
+
+          <div class="divider" aria-hidden="true">
+            <span class="divider-line"></span>
+            <span class="divider-icon">◆</span>
+            <span class="divider-line"></span>
+          </div>
+
+          <footer class="charter-footer">
+            <span class="charter-seal">Vex Guild · Est. 2024</span>
+          </footer>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════════ FEATURES ═══════════════════════ -->
+    <section class="features section" id="features" aria-labelledby="features-title">
+      <div class="container">
+
+        <div class="section-header" data-reveal>
+          <h2 class="section-title" id="features-title">Что мы <span class="gradient-text">можем?</span></h2>
+          <p class="section-lead">
+            Vex — это не только про громкие слова, но и про великие сотворения.
+            Нам есть чем похвастаться.
+          </p>
+        </div>
+
+        <div class="features-grid">
+
+          <article class="feature-card" data-reveal>
+            <div class="feature-card-glow" aria-hidden="true"></div>
+            <div class="feature-icon" aria-hidden="true">
+              <!-- Blueprint/tower icon -->
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+                <rect x="14" y="4" width="12" height="4" fill="currentColor" opacity=".9"/>
+                <rect x="16" y="8" width="8" height="4" fill="currentColor" opacity=".7"/>
+                <rect x="12" y="12" width="16" height="4" fill="currentColor" opacity=".9"/>
+                <rect x="10" y="16" width="20" height="4" fill="currentColor" opacity=".7"/>
+                <rect x="8" y="20" width="24" height="4" fill="currentColor" opacity=".9"/>
+                <rect x="6" y="24" width="28" height="4" fill="currentColor" opacity=".7"/>
+                <rect x="4" y="28" width="32" height="4" fill="currentColor" opacity=".5"/>
+                <rect x="2" y="32" width="36" height="4" fill="currentColor" opacity=".9"/>
+              </svg>
+            </div>
+            <h3 class="feature-title">Мегапроекты</h3>
+            <p class="feature-desc">
+              Огромные проекты, которые исчисляются миллионами блоков.
+            </p>
+            <div class="feature-badge">Масштаб</div>
+          </article>
+
+          <article class="feature-card" data-reveal>
+            <div class="feature-card-glow" aria-hidden="true"></div>
+            <div class="feature-icon" aria-hidden="true">
+              <!-- Chest/coin icon -->
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+                <rect x="4" y="14" width="32" height="20" fill="currentColor" opacity=".4"/>
+                <rect x="4" y="14" width="32" height="6" fill="currentColor" opacity=".8"/>
+                <rect x="14" y="17" width="12" height="4" rx="2" fill="currentColor" opacity="1"/>
+                <rect x="4" y="8" width="32" height="6" rx="2" fill="currentColor" opacity=".6"/>
+                <rect x="16" y="20" width="8" height="8" rx="1" fill="currentColor" opacity=".3"/>
+              </svg>
+            </div>
+            <h3 class="feature-title">Экономика</h3>
+            <p class="feature-desc">
+              Формирование ведущей экономики сервера за счет высокого уровня торговли.
+            </p>
+            <div class="feature-badge">Торговля</div>
+          </article>
+
+          <article class="feature-card" data-reveal>
+            <div class="feature-card-glow" aria-hidden="true"></div>
+            <div class="feature-icon" aria-hidden="true">
+              <!-- Gear/redstone icon -->
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+                <rect x="16" y="2" width="8" height="6" rx="1" fill="currentColor" opacity=".9"/>
+                <rect x="16" y="32" width="8" height="6" rx="1" fill="currentColor" opacity=".9"/>
+                <rect x="2" y="16" width="6" height="8" rx="1" fill="currentColor" opacity=".9"/>
+                <rect x="32" y="16" width="6" height="8" rx="1" fill="currentColor" opacity=".9"/>
+                <rect x="6" y="6" width="6" height="6" rx="1" fill="currentColor" opacity=".7"/>
+                <rect x="28" y="6" width="6" height="6" rx="1" fill="currentColor" opacity=".7"/>
+                <rect x="6" y="28" width="6" height="6" rx="1" fill="currentColor" opacity=".7"/>
+                <rect x="28" y="28" width="6" height="6" rx="1" fill="currentColor" opacity=".7"/>
+                <rect x="12" y="12" width="16" height="16" rx="2" fill="currentColor" opacity=".5"/>
+                <rect x="16" y="16" width="8" height="8" rx="1" fill="currentColor" opacity=".9"/>
+              </svg>
+            </div>
+            <h3 class="feature-title">Фермы и механизмы</h3>
+            <p class="feature-desc">
+              Строительство самых производительных ферм общими усилиями для игроков нашего клана.
+            </p>
+            <div class="feature-badge">Инженерия</div>
+          </article>
+
+          <article class="feature-card" data-reveal>
+            <div class="feature-card-glow" aria-hidden="true"></div>
+            <div class="feature-icon" aria-hidden="true">
+              <!-- Wings/shield icon -->
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+                <rect x="18" y="4" width="4" height="6" fill="currentColor" opacity=".9"/>
+                <rect x="2" y="10" width="8" height="4" fill="currentColor" opacity=".7"/>
+                <rect x="4" y="14" width="8" height="4" fill="currentColor" opacity=".6"/>
+                <rect x="6" y="18" width="6" height="4" fill="currentColor" opacity=".5"/>
+                <rect x="8" y="22" width="6" height="4" fill="currentColor" opacity=".4"/>
+                <rect x="30" y="10" width="8" height="4" fill="currentColor" opacity=".7"/>
+                <rect x="28" y="14" width="8" height="4" fill="currentColor" opacity=".6"/>
+                <rect x="28" y="18" width="6" height="4" fill="currentColor" opacity=".5"/>
+                <rect x="26" y="22" width="6" height="4" fill="currentColor" opacity=".4"/>
+                <rect x="14" y="10" width="12" height="6" fill="currentColor" opacity=".8"/>
+                <rect x="16" y="16" width="8" height="6" fill="currentColor" opacity=".6"/>
+                <rect x="18" y="22" width="4" height="8" fill="currentColor" opacity=".5"/>
+              </svg>
+            </div>
+            <h3 class="feature-title">Сообщество</h3>
+            <p class="feature-desc">
+              Мы стараемся создать уют для каждого участника нашего сообщества.
+            </p>
+            <blockquote class="feature-quote">«Порядок в механизмах, сила в единстве»</blockquote>
+            <div class="feature-badge">Единство</div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════ PRINCIPLES ═══════════════════════ -->
+    <section class="principles section" id="principles" aria-labelledby="principles-title">
+      <div class="container">
+
+        <div class="section-header" data-reveal>
+          <div class="section-eyebrow">Кодекс клана</div>
+          <h2 class="section-title" id="principles-title">Наши <span class="gradient-text">принципы</span></h2>
+        </div>
+
+        <ol class="principles-grid" aria-label="Принципы клана Vex">
+
+          <li class="principle-item" data-reveal>
+            <div class="principle-number" aria-hidden="true">I</div>
+            <div class="principle-body">
+              <h3 class="principle-title">Свобода через созидание</h3>
+              <p class="principle-desc">Настоящая свобода — это то, что построено своими руками. Каждый блок — выражение воли.</p>
+            </div>
+            <div class="principle-line" aria-hidden="true"></div>
+          </li>
+
+          <li class="principle-item" data-reveal>
+            <div class="principle-number" aria-hidden="true">II</div>
+            <div class="principle-body">
+              <h3 class="principle-title">Порядок на базах</h3>
+              <p class="principle-desc">Чистота и логика в хранилищах, постройках и схемах — отражение уважения к команде.</p>
+            </div>
+            <div class="principle-line" aria-hidden="true"></div>
+          </li>
+
+          <li class="principle-item" data-reveal>
+            <div class="principle-number" aria-hidden="true">III</div>
+            <div class="principle-body">
+              <h3 class="principle-title">Точность в механизмах</h3>
+              <p class="principle-desc">Редстоун-схемы работают не на удачу — каждый вентиль рассчитан и обоснован.</p>
+            </div>
+            <div class="principle-line" aria-hidden="true"></div>
+          </li>
+
+          <li class="principle-item" data-reveal>
+            <div class="principle-number" aria-hidden="true">IV</div>
+            <div class="principle-body">
+              <h3 class="principle-title">Сила в единстве</h3>
+              <p class="principle-desc">Великие постройки рождаются в команде. Один игрок — камень. Клан — крепость.</p>
+            </div>
+            <div class="principle-line" aria-hidden="true"></div>
+          </li>
+
+          <li class="principle-item" data-reveal>
+            <div class="principle-number" aria-hidden="true">V</div>
+            <div class="principle-body">
+              <h3 class="principle-title">Экономика как инфраструктура</h3>
+              <p class="principle-desc">Торговля и ресурсы — не цель, а фундамент. Экономика служит строительству, а не наоборот.</p>
+            </div>
+            <div class="principle-line" aria-hidden="true"></div>
+          </li>
+
+        </ol>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════════ PROJECTS ═══════════════════════ -->
+    <section class="projects section" id="projects" aria-labelledby="projects-title">
+      <div class="container">
+
+        <div class="section-header" data-reveal>
+          <div class="section-eyebrow">Showcase</div>
+          <h2 class="section-title" id="projects-title">Проекты <span class="gradient-text">Vex</span></h2>
+          <p class="section-lead">
+            Каждое название — это история. Каждый проект — это тысячи часов и десятки умов.
+          </p>
+        </div>
+
+        <div class="projects-grid">
+
+          <article class="project-card" data-reveal>
+            <div class="corner corner--tl corner--sm" aria-hidden="true"></div>
+            <div class="corner corner--tr corner--sm" aria-hidden="true"></div>
+            <div class="project-img-wrap" aria-hidden="true">
+              <div class="project-img-placeholder">
+                <!-- Replace with: <img src="assets/project-docks.png" alt="Небесные доки" /> -->
+                <div class="project-placeholder-inner">
+                  <svg width="48" height="48" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                    <rect x="20" y="2" width="8" height="8" fill="currentColor" opacity=".6"/>
+                    <rect x="4" y="20" width="40" height="4" fill="currentColor" opacity=".4"/>
+                    <rect x="8" y="14" width="32" height="6" fill="currentColor" opacity=".5"/>
+                    <rect x="12" y="10" width="24" height="4" fill="currentColor" opacity=".6"/>
+                    <rect x="0" y="24" width="48" height="18" fill="currentColor" opacity=".2"/>
+                    <rect x="4" y="24" width="8" height="12" fill="currentColor" opacity=".5"/>
+                    <rect x="20" y="24" width="8" height="14" fill="currentColor" opacity=".5"/>
+                    <rect x="36" y="24" width="8" height="12" fill="currentColor" opacity=".5"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div class="project-content">
+              <div class="project-status project-status--active">
+                <span class="status-dot"></span> Активно
+              </div>
+              <h3 class="project-title">Небесные доки</h3>
+              <p class="project-desc">
+                Парящая инфраструктура над облаками. Латунные доки, пристани для дирижаблей,
+                соединённые переходами торговые площадки.
+              </p>
+              <div class="project-tags">
+                <span class="tag">Строительство</span>
+                <span class="tag">Небо</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card" data-reveal>
+            <div class="corner corner--tl corner--sm" aria-hidden="true"></div>
+            <div class="corner corner--tr corner--sm" aria-hidden="true"></div>
+            <div class="project-img-wrap" aria-hidden="true">
+              <div class="project-img-placeholder">
+                <div class="project-placeholder-inner">
+                  <svg width="48" height="48" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                    <rect x="4" y="4" width="18" height="18" fill="currentColor" opacity=".4"/>
+                    <rect x="26" y="4" width="18" height="18" fill="currentColor" opacity=".4"/>
+                    <rect x="4" y="26" width="18" height="18" fill="currentColor" opacity=".4"/>
+                    <rect x="26" y="26" width="18" height="18" fill="currentColor" opacity=".4"/>
+                    <rect x="8" y="8" width="10" height="10" fill="currentColor" opacity=".7"/>
+                    <rect x="30" y="8" width="10" height="10" fill="currentColor" opacity=".7"/>
+                    <rect x="8" y="30" width="10" height="10" fill="currentColor" opacity=".7"/>
+                    <rect x="30" y="30" width="10" height="10" fill="currentColor" opacity=".7"/>
+                    <rect x="21" y="0" width="6" height="48" fill="currentColor" opacity=".2"/>
+                    <rect x="0" y="21" width="48" height="6" fill="currentColor" opacity=".2"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div class="project-content">
+              <div class="project-status project-status--dev">
+                <span class="status-dot"></span> В разработке
+              </div>
+              <h3 class="project-title">Инженерный сектор</h3>
+              <p class="project-desc">
+                Централизованная зона ферм, редстоун-лабораторий и производственных цепочек.
+                Сердце механики клана.
+              </p>
+              <div class="project-tags">
+                <span class="tag">Фермы</span>
+                <span class="tag">Редстоун</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card" data-reveal>
+            <div class="corner corner--tl corner--sm" aria-hidden="true"></div>
+            <div class="corner corner--tr corner--sm" aria-hidden="true"></div>
+            <div class="project-img-wrap" aria-hidden="true">
+              <div class="project-img-placeholder">
+                <div class="project-placeholder-inner">
+                  <svg width="48" height="48" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                    <rect x="4" y="16" width="12" height="8" fill="currentColor" opacity=".7"/>
+                    <rect x="18" y="10" width="12" height="8" fill="currentColor" opacity=".7"/>
+                    <rect x="32" y="16" width="12" height="8" fill="currentColor" opacity=".7"/>
+                    <rect x="10" y="24" width="6" height="16" fill="currentColor" opacity=".4"/>
+                    <rect x="24" y="18" width="6" height="22" fill="currentColor" opacity=".4"/>
+                    <rect x="16" y="24" width="8" height="4" fill="currentColor" opacity=".3"/>
+                    <rect x="30" y="24" width="8" height="4" fill="currentColor" opacity=".3"/>
+                    <rect x="4" y="38" width="40" height="4" fill="currentColor" opacity=".5"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div class="project-content">
+              <div class="project-status project-status--planned">
+                <span class="status-dot"></span> Планируется
+              </div>
+              <h3 class="project-title">Торговая сеть</h3>
+              <p class="project-desc">
+                Единая торговая инфраструктура сервера: магазины клана, биржа ресурсов,
+                система логистики и ценообразования.
+              </p>
+              <div class="project-tags">
+                <span class="tag">Экономика</span>
+                <span class="tag">Торговля</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════ JOIN ═══════════════════════ -->
+    <section class="join section" id="join" aria-labelledby="join-title">
+
+      <div class="join-bg" aria-hidden="true">
+        <!-- join-banner.png is used as overlay reference; actual image below -->
+        <div class="join-bg-img" style="background-image: url('assets/join-banner.png');" aria-hidden="true"></div>
+        <div class="join-bg-overlay" aria-hidden="true"></div>
+      </div>
+
+      <div class="corner corner--tl" aria-hidden="true"></div>
+      <div class="corner corner--tr" aria-hidden="true"></div>
+
+      <div class="container join-inner" data-reveal>
+
+        <div class="join-text">
+          <div class="section-eyebrow">Хочешь с нами?</div>
+          <h2 class="section-title" id="join-title">Анкета для вступления<br/>в <span class="gradient-text">команду</span></h2>
+          <p class="join-desc">
+            Будем рады видеть тебя с нами, если тебе близки строительство,
+            инженерия, экономика и спокойная командная игра.
+          </p>
+
+          <ul class="join-checklist" aria-label="Что мы ценим">
+            <li>Адекватность и уважение</li>
+            <li>Желание строить и развиваться</li>
+            <li>Участие в жизни клана</li>
+            <li>Любовь к порядку и инженерии</li>
+          </ul>
+        </div>
+
+        <div class="join-action">
+          <div class="join-card">
+            <div class="corner corner--tl corner--sm" aria-hidden="true"></div>
+            <div class="corner corner--br corner--sm" aria-hidden="true"></div>
+            <img src="assets/vex-logo.png" alt="Vex Guild" class="join-logo" />
+            <p class="join-card-text">Готов стать частью Vex?</p>
+            <a href="https://discord.gg/7wDddaAr25" target="_blank" rel="noopener noreferrer"
+               class="btn btn--primary btn--large btn--discord"
+               aria-label="Вступить в Discord-сервер Vex Guild">
+              <svg class="discord-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057c.002.022.015.043.032.054a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+              </svg>
+              Вступить в Discord
+            </a>
+            <p class="join-note">Vex Guild · Discord-сервер</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════════ FAQ ═══════════════════════ -->
+    <section class="faq section" id="faq" aria-labelledby="faq-title">
+      <div class="container">
+
+        <div class="section-header" data-reveal>
+          <div class="section-eyebrow">Вопросы и ответы</div>
+          <h2 class="section-title" id="faq-title">Часто <span class="gradient-text">спрашивают</span></h2>
+        </div>
+
+        <div class="faq-list" role="list">
+
+          <div class="faq-item" data-reveal role="listitem">
+            <button class="faq-question" aria-expanded="false">
+              <span>Нужно ли быть строителем?</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-answer" hidden>
+              <p>Нет. Важнее адекватность, желание развиваться и участие в жизни клана.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" data-reveal role="listitem">
+            <button class="faq-question" aria-expanded="false">
+              <span>Есть ли требования по онлайну?</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-answer" hidden>
+              <p>Регулярность приветствуется, но клан ценит качество участия, а не бессмысленный гринд.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" data-reveal role="listitem">
+            <button class="faq-question" aria-expanded="false">
+              <span>Можно ли вступить новичку?</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-answer" hidden>
+              <p>Да, если игрок готов учиться и соблюдать порядок.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" data-reveal role="listitem">
+            <button class="faq-question" aria-expanded="false">
+              <span>Что важнее: экономика, фермы или строительство?</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-answer" hidden>
+              <p>Баланс. Vex силен тем, что соединяет все направления.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══════════════════════ FOOTER ═══════════════════════ -->
+  <footer class="site-footer" role="contentinfo">
+
+    <div class="footer-stars" aria-hidden="true"></div>
+
+    <div class="container footer-inner">
+
+      <div class="footer-brand">
+        <a href="#hero" class="logo" aria-label="Vex Guild — наверх">
+          <img src="assets/vex-logo.png" alt="Vex Guild логотип" class="logo-img logo-img--lg" />
+          <span class="logo-text">Vex <span class="logo-accent">Guild</span></span>
+        </a>
+        <p class="footer-tagline">Порядок в механизмах, сила в единстве.</p>
+      </div>
+
+      <nav class="footer-nav" aria-label="Навигация в footer">
+        <ul>
+          <li><a href="#hero">Главная</a></li>
+          <li><a href="#charter">Хартия</a></li>
+          <li><a href="#features">Возможности</a></li>
+          <li><a href="#projects">Проекты</a></li>
+          <li><a href="#join">Вступление</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer-decoration" aria-hidden="true">
+        <!-- Decorative wings -->
+        <svg class="footer-wings" width="80" height="40" viewBox="0 0 80 40" fill="none" aria-hidden="true">
+          <rect x="36" y="2" width="8" height="6" fill="currentColor" opacity=".6"/>
+          <rect x="2" y="12" width="12" height="6" fill="currentColor" opacity=".5"/>
+          <rect x="4" y="18" width="10" height="4" fill="currentColor" opacity=".4"/>
+          <rect x="8" y="22" width="8" height="4" fill="currentColor" opacity=".3"/>
+          <rect x="66" y="12" width="12" height="6" fill="currentColor" opacity=".5"/>
+          <rect x="66" y="18" width="10" height="4" fill="currentColor" opacity=".4"/>
+          <rect x="64" y="22" width="8" height="4" fill="currentColor" opacity=".3"/>
+          <rect x="18" y="12" width="18" height="6" fill="currentColor" opacity=".7"/>
+          <rect x="22" y="18" width="14" height="4" fill="currentColor" opacity=".5"/>
+          <rect x="44" y="12" width="18" height="6" fill="currentColor" opacity=".7"/>
+          <rect x="44" y="18" width="14" height="4" fill="currentColor" opacity=".5"/>
+          <rect x="36" y="8" width="8" height="16" fill="currentColor" opacity=".8"/>
+          <rect x="38" y="24" width="4" height="12" fill="currentColor" opacity=".4"/>
+        </svg>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <p class="footer-copy">Minecraft clan website. Made for GitHub Pages.</p>
+        <div class="footer-stars-row" aria-hidden="true">
+          <span>✦</span><span>✦</span><span>✦</span>
+        </div>
+      </div>
+    </div>
+
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
