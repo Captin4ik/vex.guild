@@ -1,0 +1,28 @@
+# IntelliJ IDEA
+.idea/
+*.iml
+
+# VS Code / Cursor (локальные настройки редактора)
+.vscode/
+*.code-workspace
+
+# OS
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Logs & temp
+*.log
+*.tmp
+*.swp
+*~
+
+# Env & secrets
+.env
+.env.*
+!.env.example
+
+# Node (если позже появится сборка)
+node_modules/
+dist/
+.cache/

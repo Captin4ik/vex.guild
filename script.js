@@ -261,6 +261,8 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 ═══════════════════════════════════════════════ */
 (function trackActiveSection() {
   const sections = document.querySelectorAll('section[id]');
+  if (!sections.length || !navLinks.length) return;
+
   const headerH  = header ? header.offsetHeight : 72;
 
   const sectionObserver = new IntersectionObserver((entries) => {
@@ -279,4 +281,36 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 
   sections.forEach(s => sectionObserver.observe(s));
+})();
+
+/* ═══════════════════════════════════════════════
+   9. GUIDE TOC — active section highlight
+═══════════════════════════════════════════════ */
+(function trackGuideToc() {
+  const tocLinks = document.querySelectorAll('.guide-toc a[href^="#"]');
+  if (!tocLinks.length) return;
+
+  const targets = [...tocLinks]
+    .map(link => document.querySelector(link.getAttribute('href')))
+    .filter(Boolean);
+
+  if (!targets.length) return;
+
+  const headerH = header ? header.offsetHeight : 72;
+
+  const tocObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = '#' + entry.target.id;
+        tocLinks.forEach(link => {
+          link.classList.toggle('is-active', link.getAttribute('href') === id);
+        });
+      }
+    });
+  }, {
+    rootMargin: `-${headerH + 16}px 0px -55% 0px`,
+    threshold: 0,
+  });
+
+  targets.forEach(el => tocObserver.observe(el));
 })();
