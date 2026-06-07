@@ -166,10 +166,29 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 /* ─── GRADIENT TEXT ──────────────────────────────────────────── */
 .gradient-text {
-  background: var(--grad-gold);
+  display: inline-block;
+  background: linear-gradient(
+    to right,
+    #B98745 0%,
+    #F59A23 20%,
+    #FFD24D 35%,
+    #FFF8CC 50%,
+    #FFD24D 65%,
+    #F59A23 80%,
+    #B98745 100%
+  );
+  background-size: 200%;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: gradientShimmer 2s linear infinite;
+  animation-duration: 2s !important;
+}
+
+@keyframes gradientShimmer {
+  from { background-position: 200% center; }
+  to   { background-position: 0% center; }
 }
 
 /* ─── BUTTONS ────────────────────────────────────────────────── */
@@ -349,11 +368,11 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   width: 36px;
   height: 36px;
   object-fit: contain;
-  filter: brightness(0) invert(1);
+  filter: invert(1);
   transition: filter var(--duration) var(--ease);
 }
 .logo-img--lg { width: 48px; height: 48px; }
-.logo:hover .logo-img { filter: brightness(0) invert(0.85) sepia(1) hue-rotate(10deg) saturate(3); }
+.logo:hover .logo-img { filter: invert(0.85) sepia(1) hue-rotate(10deg) saturate(3); }
 
 .logo-text {
   font-size: 1.125rem;
@@ -540,13 +559,10 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 .hero-mark-img {
   width: 58px;
-  height: 58px;
-  object-fit: contain;
-  padding: 0.45rem;
-  border: 1px solid rgba(255,255,255,0.16);
-  border-radius: var(--radius-sm);
-  background: #000;
-  box-shadow: 0 0 22px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.08);
+  height: auto;
+  display: block;
+  image-rendering: pixelated;
+  filter: drop-shadow(0 0 10px rgba(245,154,35,0.55));
 }
 
 .hero-mark-line {
@@ -709,9 +725,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 .charter-logo {
   width: 44px;
-  height: 44px;
-  object-fit: contain;
-  filter: brightness(0) invert(0.85) sepia(1) hue-rotate(10deg) saturate(3);
+  height: auto;
+  display: block;
+  image-rendering: pixelated;
 }
 
 .charter .section-title { font-size: clamp(1.75rem, 3.5vw, 2.5rem); }
@@ -1203,9 +1219,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 .join-logo {
   width: 56px;
-  height: 56px;
-  object-fit: contain;
-  filter: brightness(0) invert(0.85) sepia(1) hue-rotate(10deg) saturate(3);
+  height: auto;
+  display: block;
+  image-rendering: pixelated;
 }
 
 .join-card-text {
@@ -1386,8 +1402,11 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   justify-content: flex-end;
 }
 .footer-wings {
-  color: var(--accent-brass);
-  opacity: 0.45;
+  width: 80px;
+  height: auto;
+  display: block;
+  image-rendering: pixelated;
+  opacity: 0.8;
 }
 
 .footer-bottom {
@@ -1697,5 +1716,8 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   }
   .hero-bg { transform: none !important; }
   .bg-sprite { animation: none !important; }
+  .gradient-text {
+    /* animation forced via !important on the rule itself */
+  }
   html { scroll-behavior: auto; }
 }
