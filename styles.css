@@ -187,7 +187,56 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 
 .hero-title .gradient-text {
-  animation: gradientShimmer 2s linear infinite;
+  position: relative;
+  display: inline-block;
+  background: none;
+  -webkit-background-clip: unset;
+  background-clip: unset;
+}
+
+.hero-title .gradient-text::before {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  font: inherit;
+  letter-spacing: inherit;
+  white-space: nowrap;
+  background-size: 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: gradientShimmer 2s linear infinite !important;
+  animation-duration: 2s !important;
+}
+
+.hero-title .gradient-text--light::before {
+  background-image: linear-gradient(
+    to right,
+    #6B6C78 0%,
+    #9A9BA6 18%,
+    #C9C9D1 34%,
+    #F2F2F2 48%,
+    #FFFFFF 50%,
+    #F2F2F2 52%,
+    #C9C9D1 66%,
+    #9A9BA6 82%,
+    #6B6C78 100%
+  );
+}
+
+.hero-title .gradient-text:not(.gradient-text--light)::before {
+  background-image: linear-gradient(
+    to right,
+    #B98745 0%,
+    #F59A23 20%,
+    #FFD24D 35%,
+    #FFF8CC 50%,
+    #FFD24D 65%,
+    #F59A23 80%,
+    #B98745 100%
+  );
 }
 
 @keyframes gradientShimmer {
@@ -313,6 +362,13 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 [data-reveal].visible {
   opacity: 1;
   transform: translate3d(0, 0, 0);
+}
+
+.hero-content[data-reveal],
+.hero-content[data-reveal].visible {
+  transform: none !important;
+  backface-visibility: visible;
+  transition: opacity 0.65s var(--ease);
 }
 
 /* ─── DIVIDER ────────────────────────────────────────────────── */
@@ -2513,7 +2569,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   .hero-bg { transform: none !important; }
   .bg-sprite { animation: none !important; }
   .hero-title .gradient-text {
-    animation: none;
+    /* shimmer kept — duration forced via !important on the rule itself */
   }
   html { scroll-behavior: auto; }
 }
