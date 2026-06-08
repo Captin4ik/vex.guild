@@ -20,25 +20,42 @@ const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 /* ═══════════════════════════════════════════════
    1. HEADER — scroll state
 ═══════════════════════════════════════════════ */
+let headerTicking = false;
+let headerScrolled = false;
+
 function updateHeader() {
   if (!header) return;
-  header.classList.toggle('scrolled', window.scrollY > 60);
+  const nextScrolled = window.scrollY > 60;
+
+  if (nextScrolled !== headerScrolled) {
+    headerScrolled = nextScrolled;
+    header.classList.toggle('scrolled', nextScrolled);
+  }
+
+  headerTicking = false;
 }
-window.addEventListener('scroll', updateHeader, { passive: true });
+
+function requestHeaderUpdate() {
+  if (headerTicking) return;
+  headerTicking = true;
+  requestAnimationFrame(updateHeader);
+}
+
+window.addEventListener('scroll', requestHeaderUpdate, { passive: true });
 updateHeader();
 
 /* ═══════════════════════════════════════════════
    2. PARALLAX HERO BACKGROUND
 ═══════════════════════════════════════════════ */
 let ticking = false;
+const parallaxViewport = window.matchMedia('(min-width: 720px)');
+
+function canUseParallax() {
+  return heroBg && parallaxViewport.matches && !reduceMotion.matches;
+}
 
 function applyParallax() {
   if (!heroBg) return;
-  if (reduceMotion.matches || window.innerWidth < 720) {
-    heroBg.style.setProperty('--hero-parallax', '0px');
-    ticking = false;
-    return;
-  }
 
   const y = window.scrollY;
   const heroHeight = heroBg.closest('.hero')?.offsetHeight || window.innerHeight;
@@ -49,11 +66,16 @@ function applyParallax() {
 }
 
 window.addEventListener('scroll', () => {
+  if (!canUseParallax()) return;
   if (!ticking) {
     requestAnimationFrame(applyParallax);
     ticking = true;
   }
 }, { passive: true });
+
+if (heroBg && !canUseParallax()) {
+  heroBg.style.setProperty('--hero-parallax', '0px');
+}
 
 /* ═══════════════════════════════════════════════
    3. SCROLL REVEAL via IntersectionObserver
@@ -178,6 +200,9 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
   let W, H, particles;
   const COUNT = 70;
+  let animationId = 0;
+  let isRunning = false;
+  let isHeroVisible = true;
 
   /* Colour palette: white · blue · gold · purple */
   const COLORS = [
@@ -215,6 +240,8 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   }
 
   function draw() {
+    if (!isRunning) return;
+
     ctx.clearRect(0, 0, W, H);
 
     particles.forEach(p => {
@@ -245,15 +272,42 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       }
     });
 
-    requestAnimationFrame(draw);
+    animationId = requestAnimationFrame(draw);
+  }
+
+  function startParticles() {
+    if (isRunning || !isHeroVisible || document.hidden) return;
+    isRunning = true;
+    animationId = requestAnimationFrame(draw);
+  }
+
+  function stopParticles() {
+    if (!isRunning) return;
+    isRunning = false;
+    cancelAnimationFrame(animationId);
+    animationId = 0;
   }
 
   /* Resize observer keeps canvas crisp */
   const ro = new ResizeObserver(() => resize());
   ro.observe(heroCanvas);
 
+  const heroSection = heroCanvas.closest('.hero');
+  if (heroSection) {
+    const canvasObserver = new IntersectionObserver((entries) => {
+      isHeroVisible = entries.some(entry => entry.isIntersecting);
+      isHeroVisible ? startParticles() : stopParticles();
+    }, { threshold: 0 });
+
+    canvasObserver.observe(heroSection);
+  }
+
+  document.addEventListener('visibilitychange', () => {
+    document.hidden ? stopParticles() : startParticles();
+  });
+
   resize();
-  draw();
+  startParticles();
 })();
 
 /* ═══════════════════════════════════════════════

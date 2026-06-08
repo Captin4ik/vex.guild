@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Медный данж — Vex Guild</title>
+    <meta name="description"
+          content="Короткий гайд по Испытательным камерам в Minecraft 1.21+: ключи, зловещий режим, командный лут и добыча из зловещих сейфов."/>
+    <link rel="stylesheet" href="../styles.css"/>
+</head>
+<body class="guide-page guide-article-page">
+
+<div class="bg-sprites" aria-hidden="true">
+    <img src="../assets/vex-mob-sword.png" class="bg-sprite bs-1" alt=""/>
+    <img src="../assets/vex-mob-front.png" class="bg-sprite bs-2" alt=""/>
+    <img src="../assets/vex-mob-dark.png" class="bg-sprite bs-3" alt=""/>
+</div>
+
+<header class="site-header" id="top">
+    <div class="header-inner container">
+        <a href="../index.html#hero" class="logo" aria-label="Vex Guild — на главную">
+            <img src="../assets/vex-logo-black.png" alt="Vex Guild логотип" class="logo-img"/>
+            <span class="logo-text">Vex <span class="logo-accent">Guild</span></span>
+        </a>
+
+        <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+
+        <nav class="main-nav" id="main-nav" aria-label="Основная навигация">
+            <ul>
+                <li><a href="../index.html#hero">Главная</a></li>
+                <li><a href="../index.html#charter">Хартия</a></li>
+                <li><a href="../index.html#features">Возможности</a></li>
+                <li><a href="../index.html#projects">Проекты</a></li>
+                <li><a href="index.html" class="is-active">Гайды</a></li>
+                <li><a href="../index.html#join" class="nav-cta">Вступить</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+
+    <section class="guide-hero section" aria-labelledby="guide-title">
+        <div class="container">
+            <nav class="guide-breadcrumb" aria-label="Навигация">
+                <a href="../index.html">Главная</a>
+                <span class="guide-breadcrumb-sep" aria-hidden="true">→</span>
+                <a href="index.html">Гайды</a>
+                <span class="guide-breadcrumb-sep" aria-hidden="true">→</span>
+                <span aria-current="page">Медный данж</span>
+            </nav>
+
+            <div class="section-header" data-reveal>
+                <span class="section-eyebrow">Minecraft 1.21+ · Боевой маршрут</span>
+                <h1 class="section-title" id="guide-title">
+                    Медный данж — гайд по <span class="gradient-text">Испытательным камерам</span>
+                </h1>
+                <p class="section-lead">
+                    Короткая схема для забега: где искать, как работают ключи, зачем идти командой
+                    и какие награды стоит фармить в зловещих сейфах.
+                </p>
+                <div class="guide-meta">
+                    <span class="guide-meta-badge guide-meta-badge--gold">Minecraft 1.21+</span>
+                    <span class="guide-meta-badge">Испытательные камеры</span>
+                    <span class="guide-meta-badge">~4 мин чтения</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section guide-article-section">
+        <div class="container guide-layout">
+
+            <nav class="guide-toc" aria-label="Содержание гайда" data-reveal>
+                <p class="guide-toc-title">Содержание</p>
+                <ul>
+                    <li><a href="#about">Что это такое</a></li>
+                    <li><a href="#find">Как найти</a></li>
+                    <li><a href="#important">Важно</a></li>
+                    <li><a href="#team">Командный лут</a></li>
+                    <li><a href="#keys">Ключи</a></li>
+                    <li><a href="#ominous">Зловещий режим</a></li>
+                    <li><a href="#loot">Зловещий сейф</a></li>
+                    <li><a href="#tips">Краткие советы</a></li>
+                </ul>
+            </nav>
+
+            <div class="guide-content">
+
+                <article class="guide-item" id="about" data-reveal>
+                    <div class="corner corner--tl corner--sm" aria-hidden="true"></div>
+                    <div class="corner corner--tr corner--sm" aria-hidden="true"></div>
+                    <div class="corner corner--bl corner--sm" aria-hidden="true"></div>
+                    <div class="corner corner--br corner--sm" aria-hidden="true"></div>
+
+                    <header class="guide-item-header">
+                        <div class="guide-item-title-wrap">
+                            <div class="guide-item-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" shape-rendering="crispEdges">
+                                    <rect x="5" y="6" width="14" height="3" fill="currentColor" opacity=".45"/>
+                                    <rect x="4" y="9" width="16" height="3" fill="currentColor" opacity=".75"/>
+                                    <rect x="3" y="12" width="4" height="8" fill="currentColor" opacity=".62"/>
+                                    <rect x="17" y="12" width="4" height="8" fill="currentColor" opacity=".62"/>
+                                    <rect x="7" y="12" width="10" height="2" fill="currentColor" opacity=".9"/>
+                                    <rect x="9" y="14" width="6" height="6" fill="#090A0F"/>
+                                    <rect x="11" y="16" width="2" height="4" fill="currentColor" opacity=".24"/>
+                                    <rect x="6" y="20" width="12" height="2" fill="currentColor" opacity=".42"/>
+                                </svg>
+                            </div>
+                            <h2 class="guide-item-title">Что это такое</h2>
+                        </div>
+                    </header>
+
+                    <p class="guide-prose">
+                        <strong>Испытательные камеры</strong> — подземная структура из меди, туфа и туфового кирпича.
+                        Это главный боевой данж обновления 1.21: здесь проходят волны мобов, открываются сейфы
+                        и выпадает уникальный лут.
+                    </p>
+
+                    <div class="guide-fact-grid">
+                        <div class="guide-fact">
+                            <span class="guide-fact-kicker">Источник</span>
+                            <strong>Бриз и стержни</strong>
+                            <span>Нужны для крафта зарядов ветра.</span>
+                        </div>
+                        <div class="guide-fact">
+                            <span class="guide-fact-kicker">Цель фарма</span>
+                            <strong>Тяжёлое ядро</strong>
+                            <span>Главный компонент для крафта булавы.</span>
+                        </div>
+                        <div class="guide-fact">
+                            <span class="guide-fact-kicker">Бонус</span>
+                            <strong>Уникальные награды</strong>
+                            <span>Шаблоны отделки брони, пластинки и зачарованные книги.</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="guide-item guide-item--clear-corners" id="find" data-reveal>
+                    <div class="corner corner--tl corner--sm" aria-hidden="true"></div>
+                    <div class="corner corner--tr corner--sm" aria-hidden="true"></div>
+                    <div class="corner corner--bl corner--sm" aria-hidden="true"></div>
+                    <div class="corner corner--br corner--sm" aria-hidden="true"></div>
+
+                    <header class="guide-item-header">
+                        <div class="guide-item-title-wrap">
+                            <div class="guide-item-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" shape-rendering="crispEdges">
+                                    <rect x="5" y="4" width="14" height="16" fill="currentColor" opacity=".18"/>
+                                    <rect x="8" y="7" width="8" height="2" fill="currentColor"/>
+                                    <rect x="7" y="10" width="10" height="2" fill="currentColor" opacity=".75"/>
+                                    <rect x="8" y="13" width="8" height="2" fill="currentColor" opacity=".55"/>
+                                    <rect x="10" y="16" width="4" height="2" fill="currentColor"/>
+                                </svg>
+                            </div>
+                            <h2 class="guide-item-title">Как найти</h2>
+                        </div>
+                        <span class="guide-item-total">Y −40…−20</span>
+                    </header>
+
+                    <ul class="guide-checklist">
+                        <li>
+                            Стартовая комната появляется на высоте <strong>Y от −40 до −20</strong>.
+                            Основная часть данжа обычно лежит выше, примерно между <strong>−20 и 0</strong>.
+                        </li>
+                    </ul>
+                </article>
+
+                <aside class="guide-callout guide-callout--warning" id="important" data-reveal>
+                    <p class="guide-callout-title">Важно</p>
+                    <ul>
+                        <li>Спавнер уходит в кулдаун на <strong>30 минут</strong> после зачистки.</li>
+                        <li>Каждый сейф открывается <strong>один раз на игрока</strong>.</li>
+                    </ul>
+                </aside>
+
+                <article class="guide-item" id="team" data-reveal>
+                    <div class="corner corner--tl corner--sm" aria-hidden="true"></div>
+                    <div class="corner corner--tr corner--sm" aria-hidden="true"></div>
+                    <div class="corner corner--bl corner--sm" aria-hidden="true"></div>
+                    <div class="corner corner--br corner--sm" aria-hidden="true"></div>
+
+                    <header class="guide-item-header">
+                        <div class="guide-item-title-wrap">
+                            <div class="guide-item-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" shape-rendering="crispEdges">
+                                    <rect x="10" y="4" width="4" height="4" fill="currentColor"/>
+                                    <rect x="5" y="7" width="4" height="4" fill="currentColor" opacity=".7"/>
+                                    <rect x="15" y="7" width="4" height="4" fill="currentColor" opacity=".7"/>
+                                    <rect x="8" y="10" width="8" height="8" fill="currentColor"/>
+                                    <rect x="3" y="13" width="6" height="6" fill="currentColor" opacity=".65"/>
+                                    <rect x="15" y="13" width="6" height="6" fill="currentColor" opacity=".65"/>
+                                </svg>
+                            </div>
+                            <h2 class="guide-item-title">Почему выгодно ходить командой</h2>
+                        </div>
+                    </header>
+
+                    <ul class="guide-checklist">
+                        <li>С каждым игроком спавнеры выпускают больше мобов — сложность выше, но и наград больше.</li>
+                        <li>После зачистки спавнера каждый участник получает свою награду отдельно.</li>
+                        <li>При успешном броске ключ получают все участники зачистки. Если ключа нет, каждый получает свою еду или зелье.</li>
+                        <li>Сейф открывается каждым игроком со своим ключом — награда личная, не общая.</li>
+                    </ul>
+
+                    <aside class="guide-callout guide-callout--info guide-inner-callout">
+                        <p>
+                            <strong>Пример:</strong> вчетвером можно открыть один и тот же сейф четырьмя ключами
+                            и получить лут в 4 раза больше, чем в одиночном забеге.
+                        </p>
+                    </aside>
+                </article>
+
+                <article class="guide-item" id="keys" data-reveal>
+                    <div class="corner corner--tl corner--sm" aria-hidden="true"></div>
+                    <div class="corner corner--tr corner--sm" aria-hidden="true"></div>
+                    <div class="corner corner--bl corner--sm" aria-hidden="true"></div>
+                    <div class="corner corner--br corner--sm" aria-hidden="true"></div>
+
+                    <header class="guide-item-header">
+                        <div class="guide-item-title-wrap">
+                            <div class="guide-item-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" shape-rendering="crispEdges">
+                                    <rect x="4" y="10" width="10" height="4" fill="currentColor"/>
+                                    <rect x="14" y="8" width="4" height="8" fill="currentColor" opacity=".85"/>
+                                    <rect x="18" y="9" width="2" height="2" fill="currentColor"/>
+                                    <rect x="18" y="13" width="2" height="2" fill="currentColor"/>
+                                    <rect x="6" y="8" width="4" height="2" fill="currentColor" opacity=".65"/>
+                                </svg>
+                            </div>
+                            <h2 class="guide-item-title">Ключи испытаний</h2>
+                        </div>
+                        <span class="guide-item-total">50%</span>
+                    </header>
+
+                    <ul class="guide-checklist">
+                        <li>Выпадают из обычных спавнеров после полной зачистки волны.</li>
+                        <li>Нужны для открытия сундуков-сейфов.</li>
+                        <li>Шанс получить обычный ключ — <strong>50%</strong> с одного спавнера, в среднем около 2 зачисток на ключ.</li>
+                        <li>Зловещие ключи выпадают из зловещих спавнеров.</li>
+                    </ul>
+                </article>
+
+                <article class="guide-item" id="ominous" data-reveal>
+                    <div class="corner corner--tl corner--sm" aria-hidden="true"></div>
+                    <div class="corner corner--tr corner--sm" aria-hidden="true"></div>
+                    <div class="corner corner--bl corner--sm" aria-hidden="true"></div>
+                    <div class="corner corner--br corner--sm" aria-hidden="true"></div>
+
+                    <header class="guide-item-header">
+                        <div class="guide-item-title-wrap">
+                            <div class="guide-item-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" shape-rendering="crispEdges">
+                                    <rect x="7" y="5" width="2" height="3" fill="currentColor" opacity=".7"/>
+                                    <rect x="15" y="5" width="2" height="3" fill="currentColor" opacity=".7"/>
+                                    <rect x="6" y="8" width="12" height="10" fill="currentColor"/>
+                                    <rect x="9" y="11" width="2" height="2" fill="#090A0F"/>
+                                    <rect x="13" y="11" width="2" height="2" fill="#090A0F"/>
+                                    <rect x="10" y="15" width="4" height="1" fill="#090A0F"/>
+                                </svg>
+                            </div>
+                            <h2 class="guide-item-title">Зловещий режим</h2>
+                        </div>
+                        <span class="guide-item-total">30%</span>
+                    </header>
+
+                    <p class="guide-prose">
+                        Чтобы включить зловещий режим, нужен эффект <strong>зловещего испытания</strong>.
+                        Сначала добудьте зловещую бутылку, а затем выпейте её в данже или перед входом.
+                    </p>
+
+                    <ol class="guide-numbered">
+                        <li>Убить капитана разбойников и забрать <strong>зловещую бутылку</strong>.</li>
+                        <li>Или найти зловещую бутылку в наградах обычных сейфов.</li>
+                    </ol>
+
+                    <p class="guide-prose">
+                        Плохое предзнаменование в данже сменяется на зловещее испытание — спавнеры становятся
+                        зловещими. Мобы сильнее: броня, оружие и падающие сверху зелья, зато награда лучше.
+                    </p>
+
+                    <div class="guide-table-wrap" aria-label="Лут зловещего спавнера">
+                        <table class="guide-table">
+                            <thead>
+                            <tr>
+                                <th>Предмет</th>
+                                <th>Кол-во</th>
+                                <th>Шанс</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td><strong>Зловещий ключ испытания</strong></td>
+                                <td>1</td>
+                                <td><strong>30%</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Печёный картофель</td>
+                                <td>2–4</td>
+                                <td>21%</td>
+                            </tr>
+                            <tr>
+                                <td>Стейк</td>
+                                <td>1–2</td>
+                                <td>21%</td>
+                            </tr>
+                            <tr>
+                                <td>Золотая морковь</td>
+                                <td>1–2</td>
+                                <td>14%</td>
+                            </tr>
+                            <tr>
+                                <td>Зелье регенерации</td>
+                                <td>1</td>
+                                <td>7%</td>
+                            </tr>
+                            <tr>
+                                <td>Зелье силы</td>
+                                <td>1</td>
+                                <td>7%</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <aside class="guide-callout guide-callout--warning guide-inner-callout">
+                        <p>В среднем нужно <strong>3–4 зачистки</strong> зловещего спавнера на один зловещий ключ.</p>
+                    </aside>
+                </article>
+
+                <article class="guide-item" id="loot" data-reveal>
+                    <div class="corner corner--tl corner--sm" aria-hidden="true"></div>
+                    <div class="corner corner--tr corner--sm" aria-hidden="true"></div>
+                    <div class="corner corner--bl corner--sm" aria-hidden="true"></div>
+                    <div class="corner corner--br corner--sm" aria-hidden="true"></div>
+
+                    <header class="guide-item-header">
+                        <div class="guide-item-title-wrap">
+                            <div class="guide-item-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" shape-rendering="crispEdges">
+                                    <rect x="5" y="7" width="14" height="11" fill="currentColor" opacity=".9"/>
+                                    <rect x="7" y="5" width="10" height="3" fill="currentColor" opacity=".55"/>
+                                    <rect x="10" y="10" width="4" height="4" fill="#090A0F"/>
+                                    <rect x="11" y="14" width="2" height="2" fill="#090A0F"/>
+                                    <rect x="6" y="18" width="12" height="2" fill="currentColor" opacity=".45"/>
+                                </svg>
+                            </div>
+                            <h2 class="guide-item-title">Эксклюзивная добыча из зловещего сейфа</h2>
+                        </div>
+                    </header>
+
+                    <p class="guide-prose">
+                        Зловещий сейф открывается зловещим ключом. Главная цель фарма — <strong>тяжёлое ядро</strong>
+                        для булавы.
+                    </p>
+
+                    <div class="guide-table-wrap" aria-label="Добыча из зловещего сейфа">
+                        <table class="guide-table guide-table--wide">
+                            <thead>
+                            <tr>
+                                <th>Предмет</th>
+                                <th>Кол-во</th>
+                                <th>Шанс</th>
+                                <th>Зачем нужен</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>Изумруды</td>
+                                <td>4–10</td>
+                                <td>56,2%</td>
+                                <td>Торговля</td>
+                            </tr>
+                            <tr>
+                                <td>Заряды ветра</td>
+                                <td>8–12</td>
+                                <td>47,4%</td>
+                                <td>Булава, мобильность</td>
+                            </tr>
+                            <tr>
+                                <td>Алмазы</td>
+                                <td>2–3</td>
+                                <td>26,4%</td>
+                                <td>Крафт</td>
+                            </tr>
+                            <tr>
+                                <td>Шаблон «Поток»</td>
+                                <td>1</td>
+                                <td>22,5%</td>
+                                <td>Отделка брони</td>
+                            </tr>
+                            <tr>
+                                <td>Зачарованное золотое яблоко</td>
+                                <td>1</td>
+                                <td>22,5%</td>
+                                <td>Выживание</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Тяжёлое ядро</strong></td>
+                                <td>1</td>
+                                <td><strong>7,5%</strong></td>
+                                <td><strong>Крафт булавы</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Книга: Пролом / Плотность</td>
+                                <td>1</td>
+                                <td>5,5%</td>
+                                <td>Зачары для булавы</td>
+                            </tr>
+                            <tr>
+                                <td>Книга: Порыв ветра</td>
+                                <td>1</td>
+                                <td>5,5%</td>
+                                <td>Прыжки с булавой</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <aside class="guide-summary guide-mini-summary">
+                        <h3 class="guide-summary-title">Крафт булавы</h3>
+                        <div class="summary-rows">
+                            <div class="summary-row">
+                                <span>Тяжёлое ядро</span>
+                                <span>1 шт.</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Стержень бриза</span>
+                                <span>1 шт.</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Палка</span>
+                                <span>1 шт.</span>
+                            </div>
+                        </div>
+                    </aside>
+                </article>
+
+                <aside class="guide-summary" id="tips" data-reveal>
+                    <div class="corner corner--tl corner--sm" aria-hidden="true"></div>
+                    <div class="corner corner--tr corner--sm" aria-hidden="true"></div>
+                    <div class="corner corner--bl corner--sm" aria-hidden="true"></div>
+                    <div class="corner corner--br corner--sm" aria-hidden="true"></div>
+
+                    <header class="guide-summary-header">
+                        <div class="guide-item-title-wrap">
+                            <div class="guide-item-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" shape-rendering="crispEdges">
+                                    <rect x="11" y="3" width="2" height="3" fill="currentColor" opacity=".75"/>
+                                    <rect x="8" y="6" width="8" height="8" fill="currentColor"/>
+                                    <rect x="10" y="14" width="4" height="2" fill="currentColor" opacity=".7"/>
+                                    <rect x="9" y="17" width="6" height="2" fill="currentColor" opacity=".55"/>
+                                    <rect x="10" y="20" width="4" height="1" fill="currentColor" opacity=".45"/>
+                                    <rect x="5" y="9" width="2" height="2" fill="currentColor" opacity=".35"/>
+                                    <rect x="17" y="9" width="2" height="2" fill="currentColor" opacity=".35"/>
+                                </svg>
+                            </div>
+                            <h2 class="guide-summary-title">Краткие советы</h2>
+                        </div>
+                    </header>
+                    <p class="guide-summary-note">
+                        Держите маршрут простым: обычные спавнеры дают ключи на разгон, зловещий режим — лучший лут.
+                    </p>
+
+                    <div class="summary-rows">
+                        <div class="summary-row">
+                            <span>Ходить вдвоём–вчетвером</span>
+                            <span>Больше открытий сейфов</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Запоминать спавнеры</span>
+                            <span>Кулдаун 30 мин</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Сначала обычные спавнеры</span>
+                            <span>Ключи на разогрев</span>
+                        </div>
+                        <div class="summary-row summary-row--total">
+                            <span>Потом зловещий режим</span>
+                            <span>Фарм сейфов</span>
+                        </div>
+                    </div>
+                </aside>
+
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<a class="guide-back-top" href="#top" aria-label="Вернуться наверх гайда">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" aria-hidden="true" shape-rendering="crispEdges">
+        <rect x="11" y="5" width="2" height="12" fill="currentColor"/>
+        <rect x="9" y="7" width="2" height="2" fill="currentColor"/>
+        <rect x="13" y="7" width="2" height="2" fill="currentColor"/>
+        <rect x="7" y="9" width="2" height="2" fill="currentColor"/>
+        <rect x="15" y="9" width="2" height="2" fill="currentColor"/>
+        <rect x="6" y="18" width="12" height="2" fill="currentColor" opacity=".55"/>
+    </svg>
+    <span>Наверх</span>
+</a>
+
+<footer class="site-footer" role="contentinfo">
+    <div class="footer-stars" aria-hidden="true"></div>
+    <div class="container footer-inner">
+        <div class="footer-brand">
+            <a href="../index.html#hero" class="logo" aria-label="Vex Guild — наверх">
+                <img src="../assets/vex-logo-black.png" alt="Vex Guild логотип" class="logo-img logo-img--lg"/>
+                <span class="logo-text">Vex <span class="logo-accent">Guild</span></span>
+            </a>
+            <p class="footer-tagline">Порядок в механизмах, сила в единстве.</p>
+        </div>
+        <nav class="footer-nav" aria-label="Навигация в footer">
+            <ul>
+                <li><a href="../index.html#hero">Главная</a></li>
+                <li><a href="../index.html#charter">Хартия</a></li>
+                <li><a href="../index.html#features">Возможности</a></li>
+                <li><a href="../index.html#projects">Проекты</a></li>
+                <li><a href="index.html">Гайды</a></li>
+                <li><a href="../index.html#join">Вступить</a></li>
+                <li><a href="../index.html#faq">FAQ</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="footer-bottom">
+        <div class="container">
+            <p class="footer-copy">Minecraft clan website. Made for GitHub Pages.</p>
+        </div>
+    </div>
+</footer>
+
+<script src="../script.js"></script>
+</body>
+</html>
