@@ -169,7 +169,62 @@ faqItems.forEach(item => {
 });
 
 /* ═══════════════════════════════════════════════
-   6. SMOOTH SCROLL — JS fallback for older Safari
+   6. CHARTER MODAL
+═══════════════════════════════════════════════ */
+(function initCharterModal() {
+  const charterOpen   = document.getElementById('charterOpen');
+  const charterModal  = document.getElementById('charterModal');
+  const charterClose  = document.getElementById('charterClose');
+  const charterDialog = charterModal?.querySelector('.charter-modal__dialog');
+
+  if (!charterOpen || !charterModal || !charterClose || !charterDialog) return;
+
+  let lastFocused = null;
+
+  function openCharterModal() {
+    lastFocused = document.activeElement;
+    charterModal.hidden = false;
+    requestAnimationFrame(() => {
+      charterModal.classList.add('is-open');
+    });
+    document.body.classList.add('charter-modal-open');
+    charterClose.focus();
+  }
+
+  function closeCharterModal() {
+    charterModal.classList.remove('is-open');
+    document.body.classList.remove('charter-modal-open');
+
+    const hideDelay = reduceMotion.matches ? 0 : 350;
+    window.setTimeout(() => {
+      charterModal.hidden = true;
+    }, hideDelay);
+
+    if (lastFocused && typeof lastFocused.focus === 'function') {
+      lastFocused.focus();
+    }
+  }
+
+  charterOpen.addEventListener('click', openCharterModal);
+  charterClose.addEventListener('click', closeCharterModal);
+
+  charterModal.querySelectorAll('[data-charter-close]').forEach(el => {
+    el.addEventListener('click', closeCharterModal);
+  });
+
+  charterDialog.addEventListener('click', (e) => {
+    e.stopPropagation();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !charterModal.hidden) {
+      closeCharterModal();
+    }
+  });
+})();
+
+/* ═══════════════════════════════════════════════
+   7. SMOOTH SCROLL — JS fallback for older Safari
 ═══════════════════════════════════════════════ */
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', (e) => {
@@ -314,27 +369,52 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
    8. ACTIVE NAV LINK — highlight on scroll
 ═══════════════════════════════════════════════ */
 (function trackActiveSection() {
-  const sections = document.querySelectorAll('section[id]');
-  if (!sections.length || !navLinks.length) return;
+  if (!navLinks.length) return;
 
-  const headerH  = header ? header.offsetHeight : 72;
+  const navSectionIds = [...navLinks]
+    .map(link => link.getAttribute('href'))
+    .filter(href => href && href.startsWith('#') && href.length > 1)
+    .map(href => href.slice(1));
 
-  const sectionObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const id = entry.target.id;
-        navLinks.forEach(link => {
-          const href = link.getAttribute('href');
-          link.classList.toggle('is-active', href === '#' + id);
-        });
+  if (!navSectionIds.length) return;
+
+  const navSections = navSectionIds
+    .map(id => document.getElementById(id))
+    .filter(Boolean);
+
+  if (!navSections.length) return;
+
+  let navTicking = false;
+
+  function updateActiveNav() {
+    const headerH = header ? header.offsetHeight : 72;
+    const scrollPos = window.scrollY + headerH + 48;
+
+    let activeId = navSections[0].id;
+
+    for (const section of navSections) {
+      if (section.offsetTop <= scrollPos) {
+        activeId = section.id;
       }
-    });
-  }, {
-    rootMargin: `-${headerH}px 0px -60% 0px`,
-    threshold: 0,
-  });
+    }
 
-  sections.forEach(s => sectionObserver.observe(s));
+    navLinks.forEach(link => {
+      const href = link.getAttribute('href');
+      link.classList.toggle('is-active', href === '#' + activeId);
+    });
+
+    navTicking = false;
+  }
+
+  function requestActiveNavUpdate() {
+    if (navTicking) return;
+    navTicking = true;
+    requestAnimationFrame(updateActiveNav);
+  }
+
+  window.addEventListener('scroll', requestActiveNavUpdate, { passive: true });
+  window.addEventListener('resize', requestActiveNavUpdate, { passive: true });
+  updateActiveNav();
 })();
 
 /* ═══════════════════════════════════════════════
